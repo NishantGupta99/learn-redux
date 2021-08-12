@@ -6,7 +6,7 @@ import { createStore } from "redux";
  
 
 // Store well the store is a place to store data as 
-let store = createStore(counter)
+
 // action 
 const increment = () => {
   return {
@@ -28,7 +28,20 @@ const counter = ( state=0, action) => {
       return state-1
       }
 }
-// 
+// store 
+let store = createStore(counter)
+// to display our counter in teh console window 
+store.subscribe(() => console.log(store.getState())); // we are loggin the curren t state of our store 
+// dispatcher 
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(decrement());
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -36,7 +49,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
